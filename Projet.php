@@ -13,7 +13,7 @@ $xmlDoc->loadXML($testXML);
 
 $cdList = $xmlDoc->getElementsByTagName("cd");
 
-echo "<h1>Catalogue</h1>";
+echo "<h2>Catalogue</h2>";
 echo "<div class='mesAlbums'>";
 // Parcourir chaque CD et afficher les informations
 foreach ($cdList as $cd) {

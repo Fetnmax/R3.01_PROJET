@@ -1,0 +1,20 @@
+.containerAlbum {
+    width: 100px; /* Largeur de 100 pixels */
+    height: 200px; /* Hauteur de 200 pixels */
+    /* overflow: hidden; Pour s'assurer que le contenu ne dépasse pas la taille définie */
+    border: 1px solid #000; /* Bordure de 1 pixel, style solide, couleur noire */
+}
+
+.containerAlbum .TitreAlbum {
+    font-weight: bold; /* Texte en gras */
+}
+
+.containerAlbum .DescriptionAlbum {
+    overflow: hidden; /* Pour cacher le texte dépassant du conteneur */
+    text-overflow: ellipsis; /* Affiche des points de suspension (...) pour indiquer que le texte est coupé */
+}
+.containerAlbum img
+{
+    width: 100px; /* Largeur de 100 pixels */
+    height: 100px; /* Hauteur de 100 pixels */
+}

@@ -9,7 +9,7 @@
 <body>
 <h2>Ajouter un Nouvel Album</h2>
 
-<form action="traitement_formulaire.php" method="post">
+<form action="traitementFormulaire.php" method="POST">
     <!-- Champ pour le titre -->
     <label for="titre">Titre de l'album:</label>
     <input type="text" id="titre" name="titre" required>
@@ -27,4 +27,3 @@
 
 </form>
 </body>
-<?php

@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="projet.css">
 </head>
 <?php
-$xmlDoc = new DOMDocument();
+$catalogue = new DOMDocument();
 $testXML = file_get_contents("CD.xml");
-$xmlDoc->loadXML($testXML);
+$catalogue->loadXML($testXML);
 
-$cdList = $xmlDoc->getElementsByTagName("cd");
+$cdList = $catalogue->getElementsByTagName("cd");
 
 echo "<h2>Catalogue</h2>";
 echo "<div class='mesAlbums'>";
@@ -27,6 +27,7 @@ foreach ($cdList as $cd) {
     echo "<p class='TitreAlbum'>Titre: $titre</p>";
     echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
     echo "</div>";
+
 }
 echo "</div>";
 ?>

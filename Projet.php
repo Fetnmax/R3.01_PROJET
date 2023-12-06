@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Page d'Album</title>
+    <link rel="stylesheet" href="projet.css">
+</head>
 <?php
 $xmlDoc = new DOMDocument();
 $testXML = file_get_contents("CD.xml");
@@ -5,6 +13,8 @@ $xmlDoc->loadXML($testXML);
 
 $cdList = $xmlDoc->getElementsByTagName("cd");
 
+echo "<h1>Catalogue</h1>";
+echo "<div class='mesAlbums'>";
 // Parcourir chaque CD et afficher les informations
 foreach ($cdList as $cd) {
     $titre = $cd->getElementsByTagName("titre")->item(0)->nodeValue;
@@ -12,10 +22,11 @@ foreach ($cdList as $cd) {
     $pochette = $cd->getElementsByTagName("pochette")->item(0)->nodeValue;
 
     // Affichage des informations
-    echo "<div>";
+    echo "<div class='containerAlbum'>";
     echo "<img src='$pochette' alt='$titre'>";
-    echo "<p>Titre: $titre</p>";
-    echo "<p>Artiste: $artiste</p>";
+    echo "<p class='TitreAlbum'>Titre: $titre</p>";
+    echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
     echo "</div>";
 }
+echo "</div>";
 ?>

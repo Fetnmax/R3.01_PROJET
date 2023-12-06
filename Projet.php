@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Page d'Album</title>
+    <title>Catalogue de CD</title>
     <link rel="stylesheet" href="projet.css">
 </head>
+<body>
 <?php
 $catalogue = new DOMDocument();
 $testXML = file_get_contents("CD.xml");
@@ -26,8 +27,13 @@ foreach ($cdList as $cd) {
     echo "<img src='$pochette' alt='$titre'>";
     echo "<p class='TitreAlbum'>Titre: $titre</p>";
     echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
+    echo '<form action="detail.php?cd='.urlencode($titre).'" method="get">';
+    echo '<button type="submit">Choisir</button>';
+    echo '</form>';
     echo "</div>";
 
 }
 echo "</div>";
 ?>
+</body>
+</html>

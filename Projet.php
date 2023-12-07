@@ -26,7 +26,7 @@ foreach ($cdList as $cd) {
 
     // Affichage des informations
     echo "<div class='containerAlbum'>";
-    echo "<img src='$pochette' alt='$titre'>";
+    echo "<img src='genererImage.php?idCD=$id' alt='$titre'>";
     echo "<p class='TitreAlbum'>Titre: $titre</p>";
     echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
     echo '<form action="detail.php" method="get">';

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <catalogue>
     <cd>
         <titre>Dark Side of the Moon</titre>
@@ -22,4 +23,14 @@
         <prix>22.99</prix>
         <pochette>images/abbey_road.jpg</pochette>
     </cd>
-</catalogue>
+
+    
+
+<cd>
+		<titre>dada
+		</titre><artiste>ad
+		</artiste><genre>adad
+		</genre><prix>2
+		</prix><pochette>Requete4.PNG
+
+	</pochette></cd></catalogue>

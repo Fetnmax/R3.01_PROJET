@@ -31,7 +31,6 @@ foreach ($cdList as $cd) {
     echo '<button type="submit">Choisir</button>';
     echo '</form>';
     echo "</div>";
-
 }
 echo "</div>";
 ?>

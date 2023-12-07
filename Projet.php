@@ -14,6 +14,8 @@ $catalogue->loadXML($testXML);
 
 $cdList = $catalogue->getElementsByTagName("cd");
 
+$id = 0;
+
 echo "<h2>Catalogue</h2>";
 echo "<div class='mesAlbums'>";
 // Parcourir chaque CD et afficher les informations
@@ -27,11 +29,12 @@ foreach ($cdList as $cd) {
     echo "<img src='$pochette' alt='$titre'>";
     echo "<p class='TitreAlbum'>Titre: $titre</p>";
     echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
-    echo '<form action="detail.php?cd='.urlencode($titre).'" method="get">';
-    echo '<button type="submit">Choisir</button>';
+    echo '<form action="detail.php" method="get">';
+    echo '<button type="submit" name="idCD" value="'.$id.'">Choisir</button>';
     echo '</form>';
     echo "</div>";
 
+    $id++;
 }
 echo "</div>";
 ?>

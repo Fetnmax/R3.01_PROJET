@@ -33,8 +33,11 @@ foreach ($cdList as $cd) {
     echo '<button type="submit" name="idCD" value="'.$id.'">Choisir</button>';
     echo '</form>';
     echo "</div>";
+<<<<<<< HEAD
+=======
 
     $id++;
+>>>>>>> 1ff9263b1c30ab63c59f7f091e91f396d411bfb9
 }
 echo "</div>";
 ?>

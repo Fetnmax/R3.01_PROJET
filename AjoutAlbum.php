@@ -9,21 +9,29 @@
 <body>
 <h2>Ajouter un Nouvel Album</h2>
 
-<form action="traitementFormulaire.php" method="POST">
-    <!-- Champ pour le titre -->
-    <label for="titre">Titre de l'album:</label>
-    <input type="text" id="titre" name="titre" required>
-    </br>
-    <!-- Champ pour l'auteur -->
-    <label for="auteur">Auteur/Groupe:</label>
-    <input type="text" id="auteur" name="auteur" required>
-    </br>
-    <!-- Champ pour l'image (URL) -->
-    <label for="image">Image de l'album:</label>
-    <input type="file" id="image" name="image" accept="image/*" required>
-    </br>
-    <!-- Bouton de soumission -->
-    <input type="submit" value="Ajouter">
+    <form action="traitementFormulaire.php" method="POST">
+        <!-- Champ pour le titre -->
+        <label for="titre">Titre de l'album:</label>
+        <input type="text" id="titre" name="titre" required>
+        </br>
+        <!-- Champ pour l'auteur -->
+        <label for="auteur">Auteur/Groupe:</label>
+        <input type="text" id="auteur" name="auteur" required>
+        </br>
+        <!-- Champ pour le Genre -->
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required>
+        </br>
+        <!-- Champ pour le prix -->
+        <label for="prix">Prix :</label>
+        <input type="number" id="prix" name="prix" required>
+        </br>
+        <!-- Champ pour l'image (URL) -->
+        <label for="image">Image de l'album:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        </br>
+        <!-- Boutton ajouter -->
+        <input type="submit" value="Ajouter">
 
-</form>
+    </form>
 </body>

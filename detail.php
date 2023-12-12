@@ -1,17 +1,23 @@
 <?php
     $idCD = $_GET['idCD'];
     
-    $catalogue = new DOMDocument();
-    $testXML = file_get_contents("CD.xml");
-    $catalogue->loadXML($testXML);
+    $bdd= "scurran_bd"; // Base de données
+    $host= "lakartxela.iutbayonne.univ-pau.fr";
+    $user= "scurran_bd"; // Utilisateur
+    $pass= "scurran_bd"; // mp
+    $nomtable= "CD"; /* Connection bdd */
+    $link=mysqli_connect($host,$user,$pass,$bdd) or die( "Impossible de se connecter à la base de données");
+    $query = "SELECT * FROM CD WHERE id = $idCD";
+    $result= mysqli_query($link,$query);
 
-    $cdList = $catalogue->getElementsByTagName("cd");
+    while ($donnees=mysqli_fetch_assoc($result)) {
+        $titre = $donnees['titre'];
+        $artiste = $donnees['artiste'];
+        $pochette = $donnees['pochette'];
+        $genre = $donnees['genre'];
+        $prix = $donnees['prix'];
+    }
 
-    $titre = $cdList[$idCD]->getElementsByTagName("titre")->item(0)->nodeValue;
-    $artiste = $cdList[$idCD]->getElementsByTagName("artiste")->item(0)->nodeValue;
-    $pochette = $cdList[$idCD]->getElementsByTagName("pochette")->item(0)->nodeValue;
-    $genre = $cdList[$idCD]->getElementsByTagName("genre")->item(0)->nodeValue;
-    $prix = $cdList[$idCD]->getElementsByTagName("prix")->item(0)->nodeValue;
     echo '<!DOCTYPE html>
             <html lang="fr">
             <head>

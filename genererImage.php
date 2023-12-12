@@ -1,18 +1,6 @@
 <?php
     header("Content-type: image/jpeg");
-<<<<<<< HEAD
-    $idCD = $_GET['idCD'];
-
-    $testXML = file_get_contents("CD.xml");
-    $catalogue = new DOMDocument();
-
-    $catalogue->loadXML($testXML);
-
-    $cdList = $catalogue->getElementsByTagName("cd");
-    error_log('Debug message: Something happened');
-    $pochette = $cdList[0]->getElementsByTagName("pochette")->item(0)->nodeValue;
-=======
-
+    
     $idCD = $_GET['idCD'];
     
     $bdd= "scurran_bd"; // Base de données
@@ -28,7 +16,6 @@
         $pochette = $donnees['pochette'];
     }
 
->>>>>>> 31564693ffd2d02e1bec998f51f069a2a040dc27
     $im = imagecreatefromjpeg($pochette);
     $im = imagescale($im,200,200);
     imagejpeg($im);

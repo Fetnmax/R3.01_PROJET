@@ -19,7 +19,7 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['pwd']))
 <body>
 <h2>Ajouter un Nouvel Album</h2>
 
-    <form action="traitementFormulaire.php" method="POST">
+    <form action="traitementFormulaire.php" method="POST" enctype="multipart/form-data">
         <!-- Champ pour le titre -->
         <label for="titre">Titre de l'album:</label>
         <input type="text" id="titre" name="titre" required>

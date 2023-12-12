@@ -42,7 +42,6 @@
     $link=mysqli_connect($host,$user,$pass,$bdd) or die( "Impossible de se connecter à la base de données");
     $query = "SELECT * FROM CD ORDER BY id";
     $result= mysqli_query($link,$query);
-
     echo "<h2>Catalogue</h2>";
 
     /* On récupère nos variables de session*/

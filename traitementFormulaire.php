@@ -6,6 +6,9 @@
         return;
     } 
 
+    var_dump($_FILES);
+    var_dump($_POST);
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         // Recuperation des variables
@@ -20,12 +23,23 @@
         echo "</br>";
         echo "Titre: ". $titre;
         echo "</br>";
-        echo "Image: ". $image;
+        move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
+        echo '<div><img src="' . $targetFile . '" style="max-width: 100%;" alt="Image téléchargée"></div>';
         echo "</br>";
-        move_uploaded_file($image["tmp_name"], $targetFile);
-        echo '<div><img src="' . $image . '" style="max-width: 100%;" alt="Image téléchargée"></div>';
-        echo "</br>";
-
-        echo 'Nouveau CD ajouté avec succès.';
+        $bdd= "scurran_bd"; // Base de données
+        $host= "lakartxela.iutbayonne.univ-pau.fr";
+        $user= "scurran_bd"; // Utilisateur
+        $pass= "scurran_bd"; // mp
+        $nomtable= "CD"; /* Connection bdd */
+        $link=mysqli_connect($host,$user,$pass,$bdd) or die( "Impossible de se connecter à la base de données");
+        $query = "INSERT INTO CD (titre, artiste, genre, prix, pochette) 
+        VALUES ('$titre', '$auteur', '$genre', $prix, '$targetFile');";
+        echo $query;
+        $result= mysqli_query($link,$query);
+        if ($result) {
+            echo 'Nouveau CD ajouté avec succès.';
+        } else {
+            echo "Erreur d'insertion : " . mysqli_error($link);
+        }
     }
 ?>

@@ -1,3 +1,6 @@
+<?php
+    session_start ();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,6 +22,15 @@
     $result= mysqli_query($link,$query);
 
     echo "<h2>Catalogue</h2>";
+    echo '<a href="AjoutAlbum.php">Ajouter un Album </a>';
+
+    /* On récupère nos variables de session*/
+    if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) {
+        echo '<a href="logout.php">Se deconnecter</a>';
+    }else
+    {
+        echo '<a href="PageDauthentification.html">Se connecter</a>';
+    }/**/
     echo "<div class='mesAlbums'>";
     // Parcourir chaque CD et afficher les informations
     while ($donnees=mysqli_fetch_assoc($result)) {

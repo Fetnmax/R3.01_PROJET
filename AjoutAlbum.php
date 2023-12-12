@@ -1,7 +1,7 @@
 <?php
 session_start ();
 // On récupère nos variables de session
-if (!isset($_SESSION['login']) && isset($_SESSION['pwd'])) 
+if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) 
 {
     echo "Vous n'etes pas authentifié veuillez vous connecter";
     return;

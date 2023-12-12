@@ -1,7 +1,7 @@
 .containerAlbum {
     width: 200px; /* Largeur de 100 pixels */
-    height: 300px; /* Hauteur de 200 pixels */
-    /* overflow: hidden; Pour s'assurer que le contenu ne dépasse pas la taille définie */
+    height: 350px; /* Hauteur de 200 pixels */
+    overflow: hidden; /*Pour s'assurer que le contenu ne dépasse pas la taille définie */
     border: 1px solid #6d6d6d; /* Bordure de 1 pixel, style solide, couleur noire */
     margin-right: 10px;
     

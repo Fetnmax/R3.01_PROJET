@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="projet.css">
 </head>
 <body>
+
 <?php
 $catalogue = new DOMDocument();
 $testXML = file_get_contents("CD.xml");
@@ -16,7 +17,17 @@ $cdList = $catalogue->getElementsByTagName("cd");
 
 $id = 0;
 
+//session_start();
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) 
+{
+    echo '<a href="logout.php"> se deconnecter </a>';
+}
+else
+{
+    echo '<a href="PageDauthentification.html"> se connecter </a>';
+}
 echo "<h2>Catalogue</h2>";
+
 echo "<div class='mesAlbums'>";
 // Parcourir chaque CD et afficher les informations
 foreach ($cdList as $cd) {

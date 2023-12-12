@@ -11,13 +11,6 @@ CREATE TABLE CD
 
 
     
-    <cd>
-        <titre>Abbey Road</titre>
-        <artiste>The Beatles</artiste>
-        <genre>Rock</genre>
-        <prix>22.99</prix>
-        <pochette>images/abbey_road.jpg</pochette>
-    </cd>
 -- Insertion
 INSERT INTO CD (titre, artiste, genre, prix, pochette) 
 VALUES ('Dark Side of the Moon', 'Pink Floyd', 'Rock progressif', 19, 'images/dark_side_of_the_moon.jpg');

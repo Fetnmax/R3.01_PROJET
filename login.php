@@ -12,7 +12,7 @@
             $_SESSION['login'] = $_POST['login'];
             $_SESSION['pwd'] = $_POST['pwd'];
             // on redirige notre visiteur vers une page de notre section membre
-            header ('location: tp4.php');
+            header ('location: Projet.php');
         }
         else 
         {

@@ -4,6 +4,7 @@
     overflow: hidden; /*Pour s'assurer que le contenu ne dépasse pas la taille définie */
     border: 1px solid #6d6d6d; /* Bordure de 1 pixel, style solide, couleur noire */
     margin-right: 10px;
+    margin-bottom: 10px;
     
 }
 
@@ -18,17 +19,44 @@
     padding-left: 5px; /* Ajoute un espace de 5 pixels avant le texte */
 }
 
-/*
-.containerAlbum img
-{
-    width: 200px;  Largeur de 100 pixels 
-    height: 200px;  Hauteur de 100 pixels 
-}
-*/
 .mesAlbums 
 {
     display: flex;            /* Utilise la disposition flexible (Flexbox) */
     flex-wrap: wrap;          /* Permet aux éléments enfants de passer à la ligne si nécessaire */
     /*justify-content: space-around; /* Aligne les éléments enfants avec un espacement équitable autour d'eux */
     margin-left: 20px;
+}
+
+/* Barre de navigation */
+nav {
+    background-color: #444;
+    padding: 1px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center vertically */
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: block;
+}
+
+/* Style de survol pour les liens */
+nav a:hover {
+    background-color: #555;
+}
+
+/* Style pour le lien actif (page courante) */
+article {
+    margin: 40px;
+}
+.container-nav
+{
+    display: flex;
 }

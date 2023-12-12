@@ -1,16 +1,38 @@
 <?php
     session_start ();
+    $connecter = (isset($_SESSION['login']) && isset($_SESSION['pwd']));
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogue de CD</title>
-    <link rel="stylesheet" href="projet.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
+<header>
+    <nav>
+        <ul>
+            <div class='container-nav'>
+                <li><a href="Projet.php">Accueil</a></li>
+            </div>
+            <div class='container-nav'>
+            <?php
+                if ($connecter) {
+                    echo '<li><a href="AjoutAlbum.php">Ajouter un Album </a></li>';
+                    echo '<li><a href="logout.php">Se déconnecter</a></li>';
+                } else {
+                    echo '<li><a href="PageDauthentification.html">Se connecter</a></li>';
+                }
+                ?>
+            </div>
+        </ul>
+    </nav>
+</header>
+<article>
 <?php
     $bdd= "scurran_bd"; // Base de données
     $host= "lakartxela.iutbayonne.univ-pau.fr";
@@ -22,15 +44,8 @@
     $result= mysqli_query($link,$query);
 
     echo "<h2>Catalogue</h2>";
-    echo '<a href="AjoutAlbum.php">Ajouter un Album </a>';
 
     /* On récupère nos variables de session*/
-    if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) {
-        echo '<a href="logout.php">Se deconnecter</a>';
-    }else
-    {
-        echo '<a href="PageDauthentification.html">Se connecter</a>';
-    }/**/
     echo "<div class='mesAlbums'>";
     // Parcourir chaque CD et afficher les informations
     while ($donnees=mysqli_fetch_assoc($result)) {
@@ -51,5 +66,6 @@
     }
     echo "</div>";
 ?>
+</article>
 </body>
 </html>

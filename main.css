@@ -1,10 +1,15 @@
+article {
+    margin: 40px;
+}
 .containerAlbum {
+    position: relative;
     width: 200px; /* Largeur de 100 pixels */
     height: 350px; /* Hauteur de 200 pixels */
     overflow: hidden; /*Pour s'assurer que le contenu ne dépasse pas la taille définie */
     border: 1px solid #6d6d6d; /* Bordure de 1 pixel, style solide, couleur noire */
     margin-right: 10px;
     margin-bottom: 10px;
+
     
 }
 
@@ -26,8 +31,77 @@
     /*justify-content: space-around; /* Aligne les éléments enfants avec un espacement équitable autour d'eux */
     margin-left: 20px;
 }
+.bouttonImage
+{
+    padding: 0px;
+    border: 0px;
+    overflow: hidden; /* Pour masquer les parties de l'image en dehors du conteneur arrondi */
+}
+.bouttonImage img:hover
+{
+    filter: brightness(70%);
+}
 
+.enbas {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 0px;
+    width: 100%;
+}
+.editionPanier
+{
+    display: flex;            /* Utilise la disposition flexible (Flexbox) */
+    flex-wrap: wrap; 
+}
+.enbas form
+{
+    width: 100%;
+    text-align: center; 
+}
+.btnRetirerPanier
+{
+    width: 100%;
+    height: 30px;
+    background-color: rgba(196, 0, 0, 0.692);
+    color: white; 
+    font-size: 16px;
+    border: 0;
+}
+.btnRetirerPanier:hover
+{
+    background-color: rgba(102, 2, 2, 0.692);
+}
+.hide {
+    display: none;
+  }
+.btnPanier
+{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(0, 204, 255);
+    color: white; 
+    font-size: 16px;
+    /*font-family:'Times New Roman', Times, serif;*/
+    border: 0;
+}
+.btnPanier:hover
+{
+    background-color: rgb(4, 125, 155);
+}
+input 
+{
+    width: 25px;
+}
+article p
+{
+    margin: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    width: fit-content;
+}
+/*========================*/
 /* Barre de navigation */
+/*========================*/
 nav {
     background-color: #444;
     padding: 1px;
@@ -38,25 +112,52 @@ nav ul {
     display: flex;
     justify-content: space-between;
     align-items: center; /* Center vertically */
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
+
 nav a {
+    align-items: center; /* Center vertically */
     text-decoration: none;
     color: #fff;
     padding: 10px;
     display: block;
 }
-
 /* Style de survol pour les liens */
 nav a:hover {
     background-color: #555;
 }
 
-/* Style pour le lien actif (page courante) */
-article {
-    margin: 40px;
-}
 .container-nav
 {
     display: flex;
+    align-items: center; /* Aligner verticalement le contenu */
+}
+.nav-image
+{
+    width: 50px;
+    height: 50px;  
+    position: relative;
+}
+
+nav img 
+{
+    filter: invert(100%); /* Inverser les couleurs (noir devient blanc) */
+}
+#nbPanier
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-left: 5px;
+    color: white;
+}
+#monBouton{
+    padding: 0;
+    border: none;
+    height: 100%;
+    background: none;
+    display: inline-block; 
 }

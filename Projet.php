@@ -28,6 +28,12 @@
                     echo '<li><a href="PageDauthentification.html">Se connecter</a></li>';
                 }
                 ?>
+                <div class='nav-image'>
+                    <button id="monBouton">
+                        <img src="chariot.png" style="max-width: 100%;" alt="Image téléchargée">
+                    </button>
+                    <p id="nbPanier"></p>
+                </div>
             </div>
         </ul>
     </nav>
@@ -54,17 +60,39 @@
         $pochette = $donnees['pochette'];
 
         // Affichage des informations
-        echo "<div class='containerAlbum'>";
+        echo "<div class='containerAlbum' value = ".$id.">";
+        //Image Boutton
+        echo '<div>';
+        echo '<form action="detail.php" method="get">';
+        echo '<button class="bouttonImage" type="submit" name="idCD" value="' .$id. '">';
         echo "<img src='genererImage.php?idCD=$id' alt='$titre'>";
+        echo "</button>";
+        echo '</form>';
+        echo '</div>';
+
+        //Texte
+        echo '<div>';
         echo "<p class='TitreAlbum'>Titre: $titre</p>";
         echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
-        echo '<form action="detail.php" method="get">';
-        echo '<button type="submit" name="idCD" value="'.$id.'">Choisir</button>';
-        echo '</form>';
+        echo '</div>';
+        
+        //Bouton panier
+        echo '<div class="enbas" value="'.$id.'">';
+        //echo '<form action="detail.php" method="get">';
+        //echo '<button type="submit" name="idCD" value="'.$id.'">Ajouter au panier</button>';
+        //echo '</form>';
+        echo '<button class="btnPanier">Ajouter au panier</button>';
+            echo '<div class="editionPanier hide">';
+            echo '<p>Quantité: </p>';
+            echo '<input type="number" value="1">';
+            echo '<button class="btnRetirerPanier">Retirer au panier</button>';
+            echo '</div>';
+        echo '</div>';
+
         echo "</div>";
     }
     echo "</div>";
 ?>
 </article>
 </body>
-</html>
+</html><script src="main.js"></script>

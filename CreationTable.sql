@@ -8,20 +8,6 @@ CREATE TABLE CD
     pochette VARCHAR(50)
 
 )
-
-CREATE TABLE USER
-(
-    userName VARCHAR(50) PRIMARY KEY,
-    mdp VARCHAR(50),
-    idPanier INT FOREIGN KEY REFERENCES PANIER.id
-
-)
-
-CREATE TABLE PANIER
-(
-    id INT PRIMARY KEY,
-    
-)
     
 -- Insertion
 INSERT INTO CD (titre, artiste, genre, prix, pochette) 

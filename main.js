@@ -1,19 +1,36 @@
 let monPanier = {};
 
-function PanierAcheter()
-{
-    console.log("Ajout au panier");
-    updateQuantite(id);
+function PanierAcheter() {
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'panier.php';
+
+    for (const id in monPanier) {
+        if (monPanier.hasOwnProperty(id)) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = id;
+            input.value = monPanier[id];
+            form.appendChild(input);
+        }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
 }
+
+
 function AjouterAuPanier(id)
 {
     ChangerQuantiterAuPanier(id, 1);
 }
+
 function RetirerAuPanier(id)
 {
     delete monPanier[id];
     updateQuantite(id);
 }
+
 function ChangerQuantiterAuPanier(id, valeur)
 {
     if(valeur <= 0)
@@ -25,6 +42,7 @@ function ChangerQuantiterAuPanier(id, valeur)
     monPanier[id] = valeur;
     updateQuantite(id);
 }
+
 function updateQuantite(id)
 {
     if(monPanier[id])
@@ -39,6 +57,7 @@ function updateQuantite(id)
     }
     AfficherNombrePanier();
 }
+
 function AfficherNombrePanier()
 {
     if(Object.keys(monPanier).length == 0)

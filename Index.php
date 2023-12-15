@@ -17,7 +17,7 @@
     <nav>
         <ul>
             <div class='container-nav'>
-                <li><a href="Projet.php">Accueil</a></li>
+                <li><a href="Index.php">Accueil</a></li>
             </div>
             <div class='container-nav'>
             <?php

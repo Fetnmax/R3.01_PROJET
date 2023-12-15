@@ -39,7 +39,7 @@
         echo "<p class='TitreAlbum'>Titre: $titre</p>";
         echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
         echo '</div>';
-        echo '<form action="traitementFormulaireSup.php" method="POST">';
+        echo '<form action="traitementFormulaireSup.php" method="POST" onsubmit="return confirmerSuppression()">';
         echo '<button type="submit" name="idCD" value="'.$id.'">Supprimer Album</button>';
         echo '</form>';
 
@@ -47,4 +47,13 @@
         echo "</br>";
     }
     echo "</div>";
+
+    echo "<a href='Index.php'>Retour au menu</a>";
 ?>
+<script>
+    function confirmerSuppression() {
+        var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet album ?");
+
+        return confirmation;
+    }
+</script>

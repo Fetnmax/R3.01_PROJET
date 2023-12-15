@@ -32,4 +32,5 @@
     echo "<p>Artiste: $artiste</p>";
     echo "<p>Genre: $genre</p>";
     echo "<p>Prix: $prix €</p>";
+    echo "<a href='Index.php'>Retour au menu</a>";
 ?>

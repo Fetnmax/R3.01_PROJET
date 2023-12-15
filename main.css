@@ -8,9 +8,7 @@ article {
     overflow: hidden; /*Pour s'assurer que le contenu ne dépasse pas la taille définie */
     border: 1px solid #6d6d6d; /* Bordure de 1 pixel, style solide, couleur noire */
     margin-right: 10px;
-    margin-bottom: 10px;
-
-    
+    margin-bottom: 10px;   
 }
 
 .containerAlbum .TitreAlbum {
@@ -84,6 +82,7 @@ article {
     /*font-family:'Times New Roman', Times, serif;*/
     border: 0;
 }
+
 .btnPanier:hover
 {
     background-color: rgb(4, 125, 155);
@@ -141,7 +140,10 @@ nav a:hover {
     height: 50px;  
     position: relative;
 }
-
+.nav-image:hover
+{
+    background-color: #555;
+}
 nav img 
 {
     filter: invert(100%); /* Inverser les couleurs (noir devient blanc) */

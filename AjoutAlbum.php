@@ -44,4 +44,5 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['pwd']))
         <input type="submit" value="Ajouter">
 
     </form>
+    <a href='Index.php'>Retour au menu</a>
 </body>

@@ -6,9 +6,6 @@
         return;
     } 
 
-    var_dump($_FILES);
-    var_dump($_POST);
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         // Recuperation des variables
@@ -34,7 +31,6 @@
         $link=mysqli_connect($host,$user,$pass,$bdd) or die( "Impossible de se connecter à la base de données");
         $query = "INSERT INTO CD (titre, artiste, genre, prix, pochette) 
         VALUES ('$titre', '$auteur', '$genre', $prix, '$targetFile');";
-        echo $query;
         $result= mysqli_query($link,$query);
         if ($result) {
             echo 'Nouveau CD ajouté avec succès.';

@@ -11,8 +11,6 @@
     $pass= "scurran_bd"; // mp
     $nomtable= "CD"; /* Connection bdd */
     $link=mysqli_connect($host,$user,$pass,$bdd) or die( "Impossible de se connecter à la base de données");
-    var_dump($_FILES);
-    var_dump($_POST);
 
     $requeteRecupImage = "SELECT pochette
     FROM CD
@@ -27,7 +25,7 @@
 
     $requete = "DELETE FROM CD
     WHERE id = ".$_POST['idCD'].";";
-    echo $requete;
     $result= mysqli_query($link,$requete);
+    echo "L'album a été supprimé";
 
 ?>

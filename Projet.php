@@ -22,6 +22,7 @@
             <div class='container-nav'>
             <?php
                 if ($connecter) {
+                    echo '<li><a href="SupprimerAlbum.php">Supprimer un Album </a></li>';
                     echo '<li><a href="AjoutAlbum.php">Ajouter un Album </a></li>';
                     echo '<li><a href="logout.php">Se déconnecter</a></li>';
                 } else {

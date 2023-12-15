@@ -2,7 +2,7 @@
     session_start ();
     if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) 
     {
-        echo "Vous n'etes pas authentifié pour ajouter une image";
+        echo "Vous n'etes pas authentifié pour ajouter un Album";
         return;
     } 
 

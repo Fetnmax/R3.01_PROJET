@@ -90,7 +90,8 @@ article {
 }
 input 
 {
-    width: 25px;
+    width: 30px;
+    overflow: auto;
 }
 article p
 {

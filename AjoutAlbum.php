@@ -34,7 +34,7 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['pwd']))
         </br>
         <!-- Champ pour le prix -->
         <label for="prix">Prix :</label>
-        <input type="number" id="prix" name="prix" required>
+        <input type="number" id="prix" name="prix" step="0.01" required>
         </br>
         <!-- Champ pour l'image (URL) -->
         <label for="image">Image de l'album:</label>

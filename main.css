@@ -46,6 +46,10 @@ article {
     padding-bottom: 0px;
     width: 100%;
 }
+p{
+    pointer-events: none;
+
+}
 .editionPanier
 {
     display: flex;            /* Utilise la disposition flexible (Flexbox) */

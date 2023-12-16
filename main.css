@@ -22,6 +22,11 @@ article {
     padding-left: 5px; /* Ajoute un espace de 5 pixels avant le texte */
 }
 
+.containerAlbum .quantite {
+    text-align: center; /* Pour centrer le texte */
+    font-size: 24px; /* Taille de police plus grande (modifiable selon vos besoins) */
+}
+
 .mesAlbums 
 {
     display: flex;            /* Utilise la disposition flexible (Flexbox) */

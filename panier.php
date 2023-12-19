@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<h2>Votre panier est vide.</h2>";
     } else {
         // Afficher le contenu du panier
+        echo "<h2>Votre panier :</h2>";
         foreach ($monPanier as $id => $quantite) {
             $query = "SELECT * FROM CD WHERE id = $id ORDER BY id";
             $result= mysqli_query($link,$query);
@@ -71,8 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $prixPanier += $prix * $quantite;
 
-                echo "<h2>Votre panier :</h2>";
-                // Affichage des informations
                 echo "<div class='containerAlbum' value = ".$id.">";
                 //Image Boutton
                 echo '<div>';

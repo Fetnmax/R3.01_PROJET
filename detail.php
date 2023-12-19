@@ -1,4 +1,45 @@
 <?php
+    session_start ();
+    $connecter = (isset($_SESSION['login']) && isset($_SESSION['pwd']));
+
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue de CD</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <div class='container-nav'>
+                <li><a href="Index.php">Accueil</a></li>
+            </div>
+            <div class='container-nav'>
+            <?php
+                if ($connecter) {
+                    echo '<li><a href="SupprimerAlbum.php">Supprimer un Album </a></li>';
+                    echo '<li><a href="AjoutAlbum.php">Ajouter un Album </a></li>';
+                    echo '<li><a href="logout.php">Se déconnecter</a></li>';
+                } else {
+                    echo '<li><a href="PageDauthentification.html">Se connecter</a></li>';
+                }
+                ?>
+                <div class='nav-image'>
+                    <button id="monBouton">
+                        <img src="chariot.png" style="max-width: 100%;" alt="Image téléchargée">
+                    </button>
+                    <p id="nbPanier"></p>
+                </div>
+            </div>
+        </ul>
+    </nav>
+</header>
+<?php
     $idCD = $_GET['idCD'];
     
     $bdd= "scurran_bd"; // Base de données
@@ -32,5 +73,6 @@
     echo "<p>Artiste: $artiste</p>";
     echo "<p>Genre: $genre</p>";
     echo "<p>Prix: $prix €</p>";
-    echo "<a href='Index.php'>Retour au menu</a>";
 ?>
+</body>
+</html><script src="main.js"></script>

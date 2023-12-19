@@ -28,7 +28,7 @@ function AjouterAuPanier(id)
 function RetirerAuPanier(id)
 {
     delete monPanier[id];
-    updateQuantite(id);
+    changerQuantite(id);
 }
 
 function ChangerQuantiterAuPanier(id, valeur)
@@ -38,15 +38,43 @@ function ChangerQuantiterAuPanier(id, valeur)
         RetirerAuPanier(id);
         return;
     }
-    document.querySelector('.enbas[value="'+id+'"]').querySelector('input').value = valeur;
     monPanier[id] = valeur;
-    updateQuantite(id);
-}
+    changerQuantite(id);
 
+}
+function changerQuantite(id)
+{
+    updateQuantite(id);
+    // Sauvegarder dans une session
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'sessionPanier.php'; // Spécifiez l'action appropriée
+
+    for (const id in monPanier) {
+        if (monPanier.hasOwnProperty(id)) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = id;
+            input.value = monPanier[id];
+            form.appendChild(input);
+        }
+    }
+
+    // Ajout du formulaire à la fin du corps du document
+    document.body.appendChild(form);
+
+    // Utilisation d'AJAX pour envoyer le formulaire à sessionPanier.php
+    const formData = new FormData(form);
+
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "sessionPanier.php");
+    xmlhttp.send(formData);
+}
 function updateQuantite(id)
 {
     if(monPanier[id])
     {
+        document.querySelector('.enbas[value="'+id+'"]').querySelector('input').value = monPanier[id];
         document.querySelector('.enbas[value="'+id+'"]').querySelector('.btnPanier').classList.add("hide");
         document.querySelector('.enbas[value="'+id+'"]').querySelector('.editionPanier').classList.remove("hide");
     }
@@ -56,6 +84,36 @@ function updateQuantite(id)
         document.querySelector('.enbas[value="'+id+'"]').querySelector('.btnPanier').classList.remove("hide");
     }
     AfficherNombrePanier();
+    
+
+}
+
+function chargerPanier()
+{
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            // Traitement des données de session récupérées
+            const panierData = JSON.parse(xmlhttp.responseText);
+            console.log(panierData);
+
+            // Vous pouvez maintenant utiliser panierData comme nécessaire
+            // par exemple, parcourir les éléments du panier
+            for (const id in panierData) {
+                if (panierData.hasOwnProperty(id)) {
+                    const quantite = parseInt(panierData[id], 10);
+                    console.log(`Produit avec ID ${id} et quantité ${quantite}`);
+                    monPanier[id] = quantite;
+                    console.log(monPanier[id]);
+                    updateQuantite(id);
+                    // Faites ce que vous devez faire avec ces données
+                }
+            }
+        }
+    };
+
+    xmlhttp.open("GET", "getSessionPanier.php", true);
+    xmlhttp.send();
 }
 
 function AfficherNombrePanier()
@@ -90,3 +148,4 @@ for(let EditionDiv of btnEditionPanierElements)
         ChangerQuantiterAuPanier(EditionDiv.parentNode.getAttribute("value"), event.target.value);
     });
 }
+chargerPanier();

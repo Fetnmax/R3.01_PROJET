@@ -50,7 +50,7 @@
     $query = "SELECT * FROM CD ORDER BY id";
     $result= mysqli_query($link,$query);
     echo "<h2>Catalogue</h2>";
-
+    var_dump($_SESSION);
     /* On récupère nos variables de session*/
     echo "<div class='mesAlbums'>";
     // Parcourir chaque CD et afficher les informations

@@ -87,7 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<div>';
                 echo "<p class='TitreAlbum'>Titre: $titre</p>";
                 echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
-                echo "<p class='quantite'>Quantite :$quantite</p>";
+                echo "<p class='Info-quantite-prix'>Quantite: $quantite</p>";
+                echo "<p class='Info-quantite-prix'>Prix unitaire: $prix</p>";
+                echo "<p class='Info-quantite-prix'>Prix cd: ".$prix*$quantite."</p>";
                 echo '</div>';
 
                 echo '</div>';

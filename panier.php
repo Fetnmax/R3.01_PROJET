@@ -102,12 +102,12 @@ if (!$_SERVER["REQUEST_METHOD"] == "POST")
         echo "</aside>";
         ?>
         <article>
-        <form onsubmit="return simulatePayment()">
+        <form action="paiement.php" method="post">
         <label for="cardNumber">Numéro de Carte de Crédit (16 chiffres):</label>
-        <input type="text" id="cardNumber" maxlength="16" required></br>
+        <input type="text" id="cardNumber" name="cardNumber" maxlength="16" required></br>
 
         <label for="expirationDate">Date d'Expiration (MM/YY):</label>
-        <input type="text" id="expirationDate" pattern="\d{2}/\d{2}" placeholder="MM/YY" required></br>
+        <input type="text" id="expirationDate" name="expirationDate" pattern="\d{2}/\d{2}" placeholder="MM/YY" required></br>
 
         <button type="submit" class="btnPayer">Payer</button>
         </form>        

@@ -96,7 +96,7 @@ p{
 {
     background-color: rgb(4, 125, 155);
 }
-input 
+.containerAlbum input 
 {
     width: 30px;
     overflow: auto;
@@ -172,4 +172,45 @@ nav img
     height: 100%;
     background: none;
     display: inline-block; 
+}
+/*========================*/
+/*         Panier         */
+/*========================*/
+aside {
+    float: right; /* Pour flotter à droite */
+    width: 250px; /* Vous pouvez ajuster la largeur selon vos besoins */
+    margin-left: 20px; /* Ajoute une marge à gauche pour éviter le chevauchement avec le contenu principal */
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.PrixPanier
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+.recapAlbum
+{
+    margin-bottom: 10px;
+}
+.btnPayer {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #00385e;
+    border-radius: 5px;
+    color: #00385e;
+    background-color: #ffffff;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btnPayer:hover {
+    background-color: #014069;
+    color: #ffffff;
+    border-color: #ffffff;
 }

@@ -39,9 +39,11 @@
         </ul>
     </nav>
 </header>
-<article>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (!$_SERVER["REQUEST_METHOD"] == "POST") 
+{
+    return;
+}
     // Récupérer les données du panier depuis la requête POST
     $monPanier = $_POST;
 
@@ -51,13 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pass= "scurran_bd"; // mp
     $nomtable= "CD"; /* Connection bdd */
     $link=mysqli_connect($host,$user,$pass,$bdd) or die( "Impossible de se connecter à la base de données");
-    
-    $prixPanier = 0;
-
-    // Vérifier si le panier est vide
     if (empty($monPanier)) {
         echo "<h2>Votre panier est vide.</h2>";
-    } else {
+        return;
+    }
+    $prixPanier = 0;
+    echo "<aside>";
+    // Vérifier si le panier est vide
         // Afficher le contenu du panier
         echo "<h2>Votre panier :</h2>";
         foreach ($monPanier as $id => $quantite) {
@@ -72,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $prixPanier += $prix * $quantite;
 
-                echo "<div class='containerAlbum' value = ".$id.">";
+                echo "<div class='recapAlbum' value = ".$id.">";
                 //Image Boutton
                 echo '<div>';
                 echo '<form action="detail.php" method="get">';
@@ -96,10 +98,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             
         }
-        echo "<p class='PrixPanier'>$prixPanier €</p>";
-    }
-}
-?>
-</article>
+        echo "<p class='PrixPanier'>Prix du panier: $prixPanier €</p>";
+        echo "</aside>";
+        ?>
+        <article>
+        <form onsubmit="return simulatePayment()">
+        <label for="cardNumber">Numéro de Carte de Crédit (16 chiffres):</label>
+        <input type="text" id="cardNumber" maxlength="16" required></br>
+
+        <label for="expirationDate">Date d'Expiration (MM/YY):</label>
+        <input type="text" id="expirationDate" pattern="\d{2}/\d{2}" placeholder="MM/YY" required></br>
+
+        <button type="submit" class="btnPayer">Payer</button>
+        </form>        
+        </article>
 </body>
-</html>
+</html><script src="main.js"></script>

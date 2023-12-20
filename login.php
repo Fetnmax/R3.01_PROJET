@@ -26,4 +26,3 @@
         echo 'Les variables du formulaire ne sont pas déclarées.';
     }
 ?>
-?>

@@ -45,6 +45,7 @@ function ChangerQuantiterAuPanier(id, valeur)
 function changerQuantite(id)
 {
     updateQuantite(id);
+    
     // Sauvegarder dans une session
     const form = document.createElement('form');
     form.method = 'POST';
@@ -72,16 +73,19 @@ function changerQuantite(id)
 }
 function updateQuantite(id)
 {
-    if(monPanier[id])
+    if(document.querySelector('.enbas[value="'+id+'"]'))
     {
-        document.querySelector('.enbas[value="'+id+'"]').querySelector('input').value = monPanier[id];
-        document.querySelector('.enbas[value="'+id+'"]').querySelector('.btnPanier').classList.add("hide");
-        document.querySelector('.enbas[value="'+id+'"]').querySelector('.editionPanier').classList.remove("hide");
-    }
-    else
-    {
-        document.querySelector('.enbas[value="'+id+'"]').querySelector('.editionPanier').classList.add("hide");
-        document.querySelector('.enbas[value="'+id+'"]').querySelector('.btnPanier').classList.remove("hide");
+        if(monPanier[id])
+        {
+            document.querySelector('.enbas[value="'+id+'"]').querySelector('input').value = monPanier[id];
+            document.querySelector('.enbas[value="'+id+'"]').querySelector('.btnPanier').classList.add("hide");
+            document.querySelector('.enbas[value="'+id+'"]').querySelector('.editionPanier').classList.remove("hide");
+        }
+        else
+        {
+            document.querySelector('.enbas[value="'+id+'"]').querySelector('.editionPanier').classList.add("hide");
+            document.querySelector('.enbas[value="'+id+'"]').querySelector('.btnPanier').classList.remove("hide");
+        }
     }
     AfficherNombrePanier();
     

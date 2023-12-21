@@ -1,5 +1,19 @@
 <?php
     session_start ();
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue de CD</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<?php include('navbar.php'); ?>
+<article>
+<?php
     if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) 
     {
         echo "Vous n'etes pas authentifié pour ajouter un Album";
@@ -15,11 +29,29 @@
         $prix = $_POST['prix'];  
         $image = $_FILES['image']; 
         $targetFile = 'images/' . basename($image["name"]);
-        echo "<h1>Nouveau Album ajouter a la collection</h1></br>";
+        if($prix <= 0)
+        {
+            echo "Le prix doit etre superieur a 0";
+            return;
+        }
+        echo "<h1>Nouveau Album ajouter a la collection</h1>";
         echo "Auteur: " . $auteur;
         echo "</br>";
         echo "Titre: ". $titre;
         echo "</br>";
+        
+        $tname = $targetFile;
+        $i = 1;
+        
+        // Si le fichier existe déjà rajoute un numéro
+        while (file_exists($targetFile)) {
+            $path_info = pathinfo($tname);
+            $filename = $path_info['filename'];
+            $extension = isset($path_info['extension']) ? '.' . $path_info['extension'] : '';
+
+            $targetFile = 'images/' . $filename . '(' . $i . ')' . $extension;
+            $i++;
+        }
         move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile);
         echo '<div><img src="' . $targetFile . '" style="max-width: 100%;" alt="Image téléchargée"></div>';
         echo "</br>";

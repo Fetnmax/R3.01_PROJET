@@ -18,7 +18,7 @@
         {
             echo '<body onLoad="alert(\'Membre non reconnu...\')">';
             // puis on le redirige vers la page d'accueil
-            echo '<meta http-equiv="refresh" content="0;URL=PageDauthentification.html">';
+            echo '<meta http-equiv="refresh" content="0;URL=PageDauthentification.php">';
         }
     } 
     else 

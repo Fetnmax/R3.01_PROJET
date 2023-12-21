@@ -1,5 +1,19 @@
 <?php
     session_start ();
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue de CD</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<?php include('navbar.php'); ?>
+<article>
+<?php
     if (!isset($_SESSION['login']) && !isset($_SESSION['pwd'])) 
     {
         echo "Vous n'etes pas authentifié pour supprimer un CD";
@@ -26,7 +40,7 @@
         $pochette = $donnees['pochette'];
 
         // Affichage des informations
-        echo "<div class='containerAlbum' value = ".$id.">";
+        echo "<div class='lesAlbums' value = ".$id.">";
         //Image Boutton
         echo '<div>';
         echo '<form action="detail.php" method="get">';
@@ -40,15 +54,13 @@
         echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
         echo '</div>';
         echo '<form action="traitementFormulaireSup.php" method="POST" onsubmit="return confirmerSuppression()">';
-        echo '<button type="submit" name="idCD" value="'.$id.'">Supprimer Album</button>';
+        echo '<button type="submit" name="idCD" value="'.$id.'" class="btnSupAlbum">Supprimer Album</button>';
         echo '</form>';
 
         echo "</div>";
         echo "</br>";
     }
     echo "</div>";
-
-    echo "<a href='Index.php'>Retour au menu</a>";
 ?>
 <script>
     function confirmerSuppression() {

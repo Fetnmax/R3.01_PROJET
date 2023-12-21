@@ -38,6 +38,10 @@ function ChangerQuantiterAuPanier(id, valeur)
         RetirerAuPanier(id);
         return;
     }
+    if(valeur > 99)
+    {
+        valeur =99;
+    }
     monPanier[id] = valeur;
     changerQuantite(id);
 
@@ -131,6 +135,8 @@ function AfficherNombrePanier()
         document.getElementById("nbPanier").textContent = Object.keys(monPanier).length;
     }
 }
+// on l'affiche seulement si le js est lancer
+document.querySelector('.nav-image').classList.remove("hide");
 
 // Ajout des listener aux bouttons
 // Boutton Panier
@@ -152,4 +158,6 @@ for(let EditionDiv of btnEditionPanierElements)
         ChangerQuantiterAuPanier(EditionDiv.parentNode.getAttribute("value"), event.target.value);
     });
 }
+
+//On récupere les données de la session
 chargerPanier();

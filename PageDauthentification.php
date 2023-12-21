@@ -15,7 +15,7 @@
                 <br />
                 Votre mot de passe : 
                 <input type="password" name="pwd"><br />
-                <input type="submit" value="Connexion">
+                <input type="submit" value="Connexion" class="btnConnexion">
             </form>
         </article>
     </body>

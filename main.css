@@ -220,6 +220,11 @@ aside {
     color: #ffffff;
     border-color: #ffffff;
 }
+
+.gras
+{
+    font-weight: bold;
+}
 /*========================*/
 /*    Page supression     */
 /*========================*/
@@ -243,4 +248,25 @@ aside {
     /*background-color: rgba(102, 2, 2, 0.692);*/
     background-color: rgb(247, 247, 247);
     color: rgba(196, 0, 0, 0.692); 
+}
+
+/*========================*/
+/*    Page de connexion   */
+/*========================*/
+.btnConnexion
+{
+    background-color: rgb(0, 204, 255);
+    color: white; 
+    font-size: 16px;
+    border: 0px;
+    border-radius: 3px;
+    margin-top: 5px;
+    padding: 10px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, font-size 0.1s;
+}
+.btnConnexion:hover
+{
+    font-size: 17px;
+    background-color: rgb(247, 247, 247);
+    color: rgb(0, 204, 255); 
 }

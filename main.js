@@ -96,24 +96,20 @@ function chargerPanier()
 {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            // Traitement des données de session récupérées
-            const panierData = JSON.parse(xmlhttp.responseText);
-            console.log(panierData);
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        // Traitement des données de session récupérées
+        const panierData = JSON.parse(xmlhttp.responseText);
+        console.log(panierData);
 
-            // Vous pouvez maintenant utiliser panierData comme nécessaire
-            // par exemple, parcourir les éléments du panier
-            for (const id in panierData) {
-                if (panierData.hasOwnProperty(id)) {
-                    const quantite = parseInt(panierData[id], 10);
-                    console.log(`Produit avec ID ${id} et quantité ${quantite}`);
-                    monPanier[id] = quantite;
-                    console.log(monPanier[id]);
-                    updateQuantite(id);
-                    // Faites ce que vous devez faire avec ces données
-                }
-            }
+        // Vous pouvez maintenant utiliser panierData comme nécessaire
+        // par exemple, parcourir les éléments du panier
+        for (const id in panierData) {
+            const quantite = parseInt(panierData[id], 10);
+            console.log(`Produit avec ID ${id} et quantité ${quantite}`);
+            monPanier[id] = quantite;
+            updateQuantite(id); 
         }
+    }
     };
 
     xmlhttp.open("GET", "getSessionPanier.php", true);

@@ -81,7 +81,7 @@ if (!$_SERVER["REQUEST_METHOD"] == "POST")
                 echo "<p class='ArtisteAlbum'>Artiste: $artiste</p>";
                 echo "<p class='Info-quantite-prix'>Quantite: $quantite</p>";
                 echo "<p class='Info-quantite-prix'>Prix unitaire: $prix</p>";
-                echo "<p class='Info-quantite-prix'>Prix cd: ".$prix*$quantite."</p>";
+                echo "<p class='Info-quantite-prix gras'>Prix cd: ".$prix*$quantite."</p>";
                 echo '</div>';
 
                 echo '</div>';
@@ -99,8 +99,12 @@ if (!$_SERVER["REQUEST_METHOD"] == "POST")
 
         <label for="expirationDate">Date d'Expiration (MM/YY):</label>
         <input type="text" id="expirationDate" name="expirationDate" pattern="\d{2}/\d{2}" placeholder="MM/YY" required></br>
-
-        <button type="submit" class="btnPayer">Payer</button>
+        </br>
+        <button type="submit" class="btnPayer">Payer</button>      
+        </br> 
+        <?php
+            echo "<p class='PrixPanier'>Prix du panier: $prixPanier €</p>";
+        ?>
         </form>        
         </article>
 </body>

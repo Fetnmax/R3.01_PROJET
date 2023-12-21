@@ -65,6 +65,7 @@
                 if ($dateExpirationObj <= $expirationPlus3Mois) {
                     echo "La date d'expiration de la carte est invalide.";
                 } else {
+                    $_SESSION['panier'] = null;
                     echo "Merci de votre achat !";
                 }
             }

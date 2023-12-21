@@ -26,7 +26,7 @@
                     echo '<li><a href="AjoutAlbum.php">Ajouter un Album </a></li>';
                     echo '<li><a href="logout.php">Se déconnecter</a></li>';
                 } else {
-                    echo '<li><a href="PageDauthentification.html">Se connecter</a></li>';
+                    echo '<li><a href="PageDauthentification.php">Se connecter</a></li>';
                 }
                 ?>
                 <div class='nav-image'>

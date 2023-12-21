@@ -6,13 +6,11 @@ function PanierAcheter() {
     form.action = 'panier.php';
 
     for (const id in monPanier) {
-        if (monPanier.hasOwnProperty(id)) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = id;
-            input.value = monPanier[id];
-            form.appendChild(input);
-        }
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = id;
+        input.value = monPanier[id];
+        form.appendChild(input);
     }
 
     document.body.appendChild(form);
@@ -53,20 +51,15 @@ function changerQuantite(id)
     // Sauvegarder dans une session
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = 'sessionPanier.php'; // Spécifiez l'action appropriée
+    form.action = 'sessionPanier.php';
 
     for (const id in monPanier) {
-        if (monPanier.hasOwnProperty(id)) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = id;
-            input.value = monPanier[id];
-            form.appendChild(input);
-        }
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = id;
+        input.value = monPanier[id];
+        form.appendChild(input);
     }
-
-    // Ajout du formulaire à la fin du corps du document
-    document.body.appendChild(form);
 
     // Utilisation d'AJAX pour envoyer le formulaire à sessionPanier.php
     const formData = new FormData(form);
@@ -81,12 +74,14 @@ function updateQuantite(id)
     {
         if(monPanier[id])
         {
+            // on masque le boutton AjoutPanier et on affiche le boutton ajout panier et on met a jour le nombre 
             document.querySelector('.enbas[value="'+id+'"]').querySelector('input').value = monPanier[id];
             document.querySelector('.enbas[value="'+id+'"]').querySelector('.btnPanier').classList.add("hide");
             document.querySelector('.enbas[value="'+id+'"]').querySelector('.editionPanier').classList.remove("hide");
         }
         else
         {
+            // on affiche le boutton AjoutPanier et on masque le boutton ajout panier 
             document.querySelector('.enbas[value="'+id+'"]').querySelector('.editionPanier').classList.add("hide");
             document.querySelector('.enbas[value="'+id+'"]').querySelector('.btnPanier').classList.remove("hide");
         }
@@ -96,6 +91,7 @@ function updateQuantite(id)
 
 }
 
+//Charge le panier a partir de la session
 function chargerPanier()
 {
     const xmlhttp = new XMLHttpRequest();
@@ -124,6 +120,7 @@ function chargerPanier()
     xmlhttp.send();
 }
 
+//Affiche le nombre d'album au panier 
 function AfficherNombrePanier()
 {
     if(Object.keys(monPanier).length == 0)
